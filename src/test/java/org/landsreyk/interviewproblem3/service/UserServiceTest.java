@@ -36,9 +36,18 @@ class UserServiceTest {
     }
 
     @Test
-    void test() {
+    void testFriendship() {
         userService.createFriendship(1L, 3L);
         User user1 = userService.findById(1L);
         System.out.println(user1);
+    }
+
+    @Test
+    void testDeleteFriendship() {
+        userService.deleteFriendship(1L, 2L);
+        User user1 = userService.findById(1L);
+        User user2 = userService.findById(2L);
+        System.out.println(user1);
+        System.out.println(user2);
     }
 }

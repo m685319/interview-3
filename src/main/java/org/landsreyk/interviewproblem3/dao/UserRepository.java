@@ -2,16 +2,16 @@ package org.landsreyk.interviewproblem3.dao;
 
 import org.landsreyk.interviewproblem3.model.User;
 
-import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
-public interface UserDao {
+public interface UserRepository {
 
     Optional<User> findById(Long id);
 
-    Collection<User> findAll();
+    List<User> findAll();
 
     void deleteById(Long id);
 
-    void save(User user);
+    User save(User user);
 }
