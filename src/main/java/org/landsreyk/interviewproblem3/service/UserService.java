@@ -15,10 +15,10 @@ public class UserService {
         inMemoryUserRepository.save(user);
     }
 
-    public void createFriendship(Long userId1, Long userId2) {
+    public void createFriendship(long userId1, long userId2) {
         User user1 = inMemoryUserRepository.findById(userId1).orElseThrow(() -> new RuntimeException("User not found"));
         User user2 = inMemoryUserRepository.findById(userId2).orElseThrow(() -> new RuntimeException("User not found"));
-        if (userId1 != userId2 && !user1.getFriends().contains(user2)) {
+        if (userId1 != userId2 && !user1.getFriends().contains(user2) && !user2.getFriends().contains(user1)) {
             user1.getFriends().add(user2);
             user2.getFriends().add(user1);
         }
@@ -28,7 +28,7 @@ public class UserService {
         return inMemoryUserRepository.findById(l).orElseThrow(() -> new RuntimeException("User not found"));
     }
 
-    public void deleteFriendship(Long userId1, Long userId2) {
+    public void deleteFriendship(long userId1, long userId2) {
         // TODO: implement
     }
 }

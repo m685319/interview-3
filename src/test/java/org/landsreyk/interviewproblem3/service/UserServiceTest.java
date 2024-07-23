@@ -23,10 +23,15 @@ class UserServiceTest {
         var user5 = new User(5L, "Albert", "albert@email.com", new HashSet<>());
         var user6 = new User(6L, "Bob", "bob@email.com", new HashSet<>());
         user1.getFriends().add(user2);
+        user2.getFriends().add(user1);
         user2.getFriends().add(user3);
+        user3.getFriends().add(user2);
         user3.getFriends().add(user4);
+        user4.getFriends().add(user3);
         user4.getFriends().add(user5);
+        user5.getFriends().add(user4);
         user5.getFriends().add(user6);
+        user6.getFriends().add(user5);
         userService.save(user1);
         userService.save(user2);
         userService.save(user3);
