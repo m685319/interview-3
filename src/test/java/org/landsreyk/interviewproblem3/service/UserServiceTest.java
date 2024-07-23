@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.HashSet;
+import java.util.List;
 
 @SpringBootTest
 class UserServiceTest {
@@ -22,6 +23,12 @@ class UserServiceTest {
         var user4 = new User(4L, "Jack", "jack@email.com", new HashSet<>());
         var user5 = new User(5L, "Albert", "albert@email.com", new HashSet<>());
         var user6 = new User(6L, "Bob", "bob@email.com", new HashSet<>());
+        userService.save(user1);
+        userService.save(user2);
+        userService.save(user3);
+        userService.save(user4);
+        userService.save(user5);
+        userService.save(user6);
         user1.getFriends().add(user2);
         user2.getFriends().add(user1);
         user2.getFriends().add(user3);
@@ -43,16 +50,29 @@ class UserServiceTest {
     @Test
     void testFriendship() {
         userService.createFriendship(1L, 3L);
-        User user1 = userService.findById(1L);
-        System.out.println(user1);
+        var user = userService.findById(1L);
+        System.out.println(user);
+    }
+
+    @Test
+    void testFriendshipSelf() {
+        userService.createFriendship(1L, 1L);
+        var user = userService.findById(1L);
+        System.out.println(user);
     }
 
     @Test
     void testDeleteFriendship() {
         userService.deleteFriendship(1L, 2L);
-        User user1 = userService.findById(1L);
-        User user2 = userService.findById(2L);
+        var user1 = userService.findById(1L);
+        var user2 = userService.findById(2L);
         System.out.println(user1);
         System.out.println(user2);
+    }
+
+    @Test
+    void testFindAll() {
+        List<User> users = userService.findAll();
+        users.forEach(System.out::println);
     }
 }
