@@ -29,6 +29,11 @@ public class UserService {
     }
 
     public void deleteFriendship(long userId1, long userId2) {
-        // TODO: implement
+        User user1 = inMemoryUserRepository.findById(userId1).orElseThrow(() -> new RuntimeException("User not found"));
+        User user2 = inMemoryUserRepository.findById(userId2).orElseThrow(() -> new RuntimeException("User not found"));
+        if(userId1 != userId2) {
+            user1.getFriends().remove(user2);
+            user2.getFriends().remove(user1);
+        }
     }
 }
