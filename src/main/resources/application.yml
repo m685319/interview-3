@@ -1,3 +1,10 @@
+server:
+  port: 8088
 spring:
   application:
     name: interview-problem-3
+  datasource:
+# TODO: подключить h2 БД, которая файловая file database
+#    url: jdbc://
+#    username:
+#    password:
