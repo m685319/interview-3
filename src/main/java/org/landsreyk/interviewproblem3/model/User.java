@@ -1,15 +1,13 @@
 package org.landsreyk.interviewproblem3.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Set;
 
-@Data
 @Entity
 @Table(name = "user_table")
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
@@ -24,4 +22,14 @@ public class User {
 
     @ManyToMany
     private Set<User> friends;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", friends=" + friends.stream().map(User::getName).toList() +
+                '}';
+    }
 }
