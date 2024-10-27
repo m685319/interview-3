@@ -10,6 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.HashSet;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @SpringBootTest
 class UserServiceTest {
 
@@ -56,6 +58,7 @@ class UserServiceTest {
         userService.createFriendship(1L, 3L);
         var user = userService.findById(1L);
         System.out.println(user);
+        assertTrue(user.hasFriend(3L));
     }
 
     @Test

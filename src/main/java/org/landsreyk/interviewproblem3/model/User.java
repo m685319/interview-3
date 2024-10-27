@@ -1,7 +1,9 @@
 package org.landsreyk.interviewproblem3.model;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.data.util.Pair;
 
 import java.util.Set;
@@ -23,6 +25,10 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<User> friends;
+
+    public boolean hasFriend(Long friendId) {
+        return friends.stream().map(User::getId).anyMatch(friendId::equals);
+    }
 
     @Override
     public String toString() {
