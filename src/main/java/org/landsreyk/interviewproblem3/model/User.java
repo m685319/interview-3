@@ -2,6 +2,7 @@ package org.landsreyk.interviewproblem3.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.util.Pair;
 
 import java.util.Set;
 
@@ -20,7 +21,7 @@ public class User {
 
     private String email;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<User> friends;
 
     @Override
@@ -29,7 +30,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
-                ", friends=" + friends.stream().map(User::getName).toList() +
+                ", friends=" + friends.stream().map(x -> Pair.of(x.getId(), x.getName())).toList() +
                 '}';
     }
 }
