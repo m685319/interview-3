@@ -1,42 +1,36 @@
 package org.landsreyk.interviewproblem3.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import org.springframework.data.util.Pair;
-
+import lombok.Setter;
 import java.util.Set;
 
 @Entity
 @Table(name = "user_table")
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 255)
     private String name;
 
+    @Column(nullable = false, unique = true, length = 255)
     private String email;
 
+    // Множество друзей пользователя
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "friendship", // имя таблицы связи
+            joinColumns = @JoinColumn(name = "user_1"), // первичный ключ пользователя
+            inverseJoinColumns = @JoinColumn(name = "user_2") // первичный ключ друга
+    )
     private Set<User> friends;
 
-    public boolean hasFriend(Long friendId) {
-        return friends.stream().map(User::getId).anyMatch(friendId::equals);
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", friends=" + friends.stream().map(x -> Pair.of(x.getId(), x.getName())).toList() +
-                '}';
+    public boolean hasFriend(long friendId) {
+        return friends.stream().map(User::getId).anyMatch(x -> friendId == x);
     }
 }

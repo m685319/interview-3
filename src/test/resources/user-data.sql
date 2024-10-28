@@ -1,20 +1,31 @@
-INSERT INTO user_table (name, email) VALUES ('Alice Johnson', 'alice.johnson@example.com');
-INSERT INTO user_table (name, email) VALUES ('Bob Smith', 'bob.smith@example.com');
-INSERT INTO user_table (name, email) VALUES ('Charlie Brown', 'charlie.brown@example.com');
-INSERT INTO user_table (name, email) VALUES ('Diana Prince', 'diana.prince@example.com');
-INSERT INTO user_table (name, email) VALUES ('Ethan Hunt', 'ethan.hunt@example.com');
-INSERT INTO user_table (name, email) VALUES ('Fiona Gallagher', 'fiona.gallagher@example.com');
-INSERT INTO user_table (name, email) VALUES ('George Costanza', 'george.costanza@example.com');
-INSERT INTO user_table (name, email) VALUES ('Hannah Baker', 'hannah.baker@example.com');
-INSERT INTO user_table (name, email) VALUES ('Ian Malcolm', 'ian.malcolm@example.com');
-INSERT INTO user_table (name, email) VALUES ('Jack Sparrow', 'jack.sparrow@example.com');
-INSERT INTO user_table (name, email) VALUES ('Katherine Pierce', 'katherine.pierce@example.com');
-INSERT INTO user_table (name, email) VALUES ('Liam Neeson', 'liam.neeson@example.com');
-INSERT INTO user_table (name, email) VALUES ('Mia Wallace', 'mia.wallace@example.com');
-INSERT INTO user_table (name, email) VALUES ('Nathan Drake', 'nathan.drake@example.com');
-INSERT INTO user_table (name, email) VALUES ('Olivia Benson', 'olivia.benson@example.com');
-INSERT INTO user_table (name, email) VALUES ('Peter Parker', 'peter.parker@example.com');
-INSERT INTO user_table (name, email) VALUES ('Quinn Fabray', 'quinn.fabray@example.com');
-INSERT INTO user_table (name, email) VALUES ('Rachel Green', 'rachel.green@example.com');
-INSERT INTO user_table (name, email) VALUES ('Sam Winchester', 'sam.winchester@example.com');
-INSERT INTO user_table (name, email) VALUES ('Tina Belcher', 'tina.belcher@example.com');
+INSERT INTO user_table (id, name, email)
+VALUES (1, 'Alice Smith', 'alice.smith@example.com'),
+       (2, 'Bob Johnson', 'bob.johnson@example.com'),
+       (3, 'Charlie Brown', 'charlie.brown@example.com'),
+       (4, 'Daisy Miller', 'daisy.miller@example.com'),
+       (5, 'Evan Davis', 'evan.davis@example.com'),
+       (6, 'Fiona Clark', 'fiona.clark@example.com'),
+       (7, 'George Scott', 'george.scott@example.com'),
+       (8, 'Hannah White', 'hannah.white@example.com'),
+       (9, 'Ian Thompson', 'ian.thompson@example.com'),
+       (10, 'Jack Wilson', 'jack.wilson@example.com'),
+       (11, 'Kathy Moore', 'kathy.moore@example.com'),
+       (12, 'Liam Taylor', 'liam.taylor@example.com'),
+       (13, 'Mia Anderson', 'mia.anderson@example.com'),
+       (14, 'Noah Thomas', 'noah.thomas@example.com'),
+       (15, 'Olivia Martin', 'olivia.martin@example.com'),
+       (16, 'Paul Jackson', 'paul.jackson@example.com'),
+       (17, 'Quinn Lee', 'quinn.lee@example.com'),
+       (18, 'Rachel Harris', 'rachel.harris@example.com'),
+       (19, 'Samuel Martin', 'samuel.martin@example.com'),
+       (20, 'Tina Walker', 'tina.walker@example.com'),
+       (21, 'Uma Hall', 'uma.hall@example.com'),
+       (22, 'Victor Allen', 'victor.allen@example.com'),
+       (23, 'Wendy Young', 'wendy.young@example.com'),
+       (24, 'Xander King', 'xander.king@example.com'),
+       (25, 'Yara Wright', 'yara.wright@example.com'),
+       (26, 'Zane Green', 'zane.green@example.com'),
+       (27, 'Ava Miller', 'ava.miller@example.com'),
+       (28, 'Ella Scott', 'ella.scott@example.com'),
+       (29, 'Josh Jones', 'josh.jones@example.com'),
+       (30, 'Sophia Roberts', 'sophia.roberts@example.com');
